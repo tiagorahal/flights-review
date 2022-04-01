@@ -19,7 +19,7 @@ module Api
         if airline.save
           render json: AirlineSerializer.new(airline).serialized_json
         else
-          render json: { error: airline.errors.message }, status 422
+          render json: { error: airline.errors.message }, status: 422
         end
       end
 
@@ -29,7 +29,7 @@ module Api
         if airline.update(airline_params)
           render json: AirlineSerializer.new(airline, options).serialized_json
         else
-          render json: { error: airline.errors.message }, status 422
+          render json: { error: airline.errors.message }, status: 422
         end
       end
 
@@ -39,7 +39,7 @@ module Api
         if airline.destroy
           head :no_content
         else
-          render json: { error: airline.errors.message }, status 422
+          render json: { error: airline.errors.message }, status: 422
         end
       end
 
@@ -53,5 +53,5 @@ module Api
         @options ||= { include: %i[reviews] }
       end
     end
-  end 
+  end
 end
